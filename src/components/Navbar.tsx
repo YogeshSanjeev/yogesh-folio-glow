@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -13,12 +13,26 @@ const navLinks = [
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-background/90 backdrop-blur-xl border-b border-border shadow-sm"
+          : "bg-transparent border-b border-transparent"
+      }`}
+    >
       <div className="max-w-6xl mx-auto flex items-center justify-between h-16 px-6">
         <a href="#home" className="text-xl font-bold tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-          YK<span className="text-accent">.</span>
+          <span className={scrolled ? "text-foreground" : "text-white"}>YK</span>
+          <span className="text-sky-500">.</span>
         </a>
 
         {/* Desktop */}
@@ -27,7 +41,9 @@ const Navbar = () => {
             <li key={l.href}>
               <a
                 href={l.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className={`text-sm font-medium transition-colors duration-200 hover:text-sky-500 ${
+                  scrolled ? "text-muted-foreground" : "text-white/80 hover:text-white"
+                }`}
               >
                 {l.label}
               </a>
@@ -37,7 +53,7 @@ const Navbar = () => {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden p-2 text-foreground"
+          className={`md:hidden p-2 ${scrolled ? "text-foreground" : "text-white"}`}
           onClick={() => setOpen(!open)}
           aria-label="Toggle menu"
         >
@@ -47,7 +63,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden bg-background border-b border-border px-6 pb-4">
+        <div className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border px-6 pb-4">
           <ul className="flex flex-col gap-3">
             {navLinks.map((l) => (
               <li key={l.href}>
