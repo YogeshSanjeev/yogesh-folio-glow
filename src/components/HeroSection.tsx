@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { FadeUp } from "@/hooks/use-fade-up";
-import { User, Trophy, Award, ArrowRight, Sparkles } from "lucide-react";
+import { Trophy, ArrowRight, Sparkles } from "lucide-react";
+import profileImg from "@/assets/profile.jpg";
 
 const stats = [
   { value: "10+", label: "Projects" },
@@ -44,8 +45,8 @@ const HeroSection = () => {
             {/* Glow ring behind photo */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-amber-400/30 to-purple-300/20 blur-2xl scale-110 group-hover:scale-125 transition-transform duration-700" />
 
-            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full border-[3px] border-white/20 bg-white/10 backdrop-blur-sm flex items-center justify-center overflow-hidden shadow-[0_0_60px_rgba(168,85,247,0.3)] group-hover:shadow-[0_0_80px_rgba(168,85,247,0.4)] transition-shadow duration-500">
-              <User className="w-24 h-24 text-white/50" />
+            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full border-[3px] border-white/20 bg-white/10 backdrop-blur-sm overflow-hidden shadow-[0_0_60px_rgba(168,85,247,0.3)] group-hover:shadow-[0_0_80px_rgba(168,85,247,0.4)] transition-shadow duration-500">
+              <img src={profileImg} alt="Yogesh Kumar" className="w-full h-full object-cover" />
             </div>
 
             {/* Experience badge — glassmorphism */}
