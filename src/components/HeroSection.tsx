@@ -17,8 +17,7 @@ const HeroSection = () => {
       id="home"
       className="min-h-screen flex items-center relative overflow-hidden"
       style={{
-        background:
-          "linear-gradient(135deg, hsl(260 65% 48%) 0%, hsl(272 72% 50%) 25%, hsl(280 65% 45%) 50%, hsl(265 55% 38%) 100%)",
+        background: "hsl(197 72% 57%)",
       }}
     >
       {/* Animated decorative circles */}
