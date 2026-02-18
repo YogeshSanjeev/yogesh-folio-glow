@@ -45,7 +45,7 @@ const HeroSection = () => {
             {/* Glow ring behind photo */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-amber-400/30 to-purple-300/20 blur-2xl scale-110 group-hover:scale-125 transition-transform duration-700" />
 
-            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full border-[3px] border-white/20 bg-white/10 backdrop-blur-sm overflow-hidden shadow-[0_0_60px_rgba(168,85,247,0.3)] group-hover:shadow-[0_0_80px_rgba(168,85,247,0.4)] transition-shadow duration-500">
+            <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-[22rem] md:h-[22rem] lg:w-[26rem] lg:h-[26rem] rounded-full border-[3px] border-white/20 bg-white/10 backdrop-blur-sm overflow-hidden shadow-[0_0_60px_rgba(168,85,247,0.3)] group-hover:shadow-[0_0_80px_rgba(168,85,247,0.4)] transition-shadow duration-500">
               <img src={profileImg} alt="Yogesh Kumar" className="w-full h-full object-cover" />
             </div>
 
