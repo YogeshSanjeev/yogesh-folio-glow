@@ -13,19 +13,24 @@ const EducationSection = () => {
     <section id="education" className="section-padding">
       <div className="max-w-4xl mx-auto">
         <FadeUp>
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">Education</h2>
+          <p className="text-accent font-semibold text-sm tracking-widest uppercase mb-3">Education</p>
+          <h2 className="text-3xl md:text-4xl font-bold mb-14">
+            Academic <span className="bg-gradient-to-r from-sky-500 to-cyan-500 bg-clip-text text-transparent">Journey</span>
+          </h2>
         </FadeUp>
 
-        <div className="relative pl-8 border-l-2 border-border space-y-10">
+        <div className="relative pl-8 border-l-2 border-border space-y-8">
           {education.map((e, i) => (
             <FadeUp key={i}>
-              <div className="relative">
-                <div className="absolute -left-[2.55rem] top-1 w-10 h-10 rounded-full bg-secondary border-2 border-accent/30 flex items-center justify-center">
+              <div className="relative group">
+                <div className="absolute -left-[2.55rem] top-1 w-10 h-10 rounded-full bg-card border-2 border-accent/40 flex items-center justify-center group-hover:border-accent group-hover:scale-110 transition-all duration-300 shadow-sm">
                   <GraduationCap className="w-4 h-4 text-accent" />
                 </div>
-                <p className="text-xs text-accent font-medium tracking-wider uppercase mb-1">{e.year}</p>
-                <h3 className="text-lg font-semibold">{e.degree}</h3>
-                <p className="text-sm text-muted-foreground">{e.school}</p>
+                <div className="bg-card border border-border rounded-xl p-5 ml-4 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/5 transition-all duration-300">
+                  <p className="text-xs text-accent font-semibold tracking-wider uppercase mb-1.5">{e.year}</p>
+                  <h3 className="text-lg font-bold">{e.degree}</h3>
+                  <p className="text-sm text-muted-foreground mt-1">{e.school}</p>
+                </div>
               </div>
             </FadeUp>
           ))}
