@@ -89,9 +89,9 @@ const HeroSection = () => {
             <br />
             <span className="bg-gradient-to-r from-amber-300 via-amber-400 to-orange-400 bg-clip-text text-transparent">
               Full-Stack
+              <br />
+              Developer
             </span>
-            <br />
-            Developer
           </h1>
 
           <p className="text-white/65 max-w-lg text-base md:text-lg leading-relaxed mb-8">
