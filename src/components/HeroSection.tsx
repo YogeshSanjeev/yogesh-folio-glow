@@ -1,13 +1,14 @@
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { FadeUp } from "@/hooks/use-fade-up";
-import { User, Trophy, Award, ArrowRight } from "lucide-react";
+import { User, Trophy, Award, ArrowRight, Sparkles } from "lucide-react";
 
 const stats = [
   { value: "10+", label: "Projects" },
   { value: "5+", label: "Technologies" },
   { value: "1+", label: "Years Exp." },
 ];
+
+const techBadges = ["React", "Node.js", "Python", "MongoDB", "REST APIs"];
 
 const HeroSection = () => {
   return (
@@ -16,34 +17,51 @@ const HeroSection = () => {
       className="min-h-screen flex items-center relative overflow-hidden"
       style={{
         background:
-          "linear-gradient(135deg, hsl(260 60% 50%) 0%, hsl(270 70% 55%) 30%, hsl(280 60% 50%) 60%, hsl(260 50% 40%) 100%)",
+          "linear-gradient(135deg, hsl(260 65% 48%) 0%, hsl(272 72% 50%) 25%, hsl(280 65% 45%) 50%, hsl(265 55% 38%) 100%)",
       }}
     >
-      {/* Decorative elements */}
-      <div className="absolute top-12 right-12 w-24 h-24 rounded-full border-2 border-white/10 hidden md:block" />
-      <div className="absolute top-16 right-16 w-16 h-16 rounded-full border-2 border-white/10 hidden md:block" />
-      <div className="absolute bottom-20 left-1/2 w-[500px] h-[500px] rounded-full bg-white/5 blur-3xl -translate-x-1/2" />
-      <div className="absolute top-1/3 right-1/4 w-[300px] h-[300px] rounded-full bg-orange-400/10 blur-3xl" />
+      {/* Animated decorative circles */}
+      <div className="absolute top-10 right-10 w-28 h-28 rounded-full border border-white/10 animate-[spin_20s_linear_infinite] hidden lg:block" />
+      <div className="absolute top-14 right-14 w-20 h-20 rounded-full border border-white/[0.07] animate-[spin_15s_linear_infinite_reverse] hidden lg:block" />
+      <div className="absolute -bottom-32 -left-32 w-96 h-96 rounded-full bg-amber-400/10 blur-[100px]" />
+      <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-purple-300/10 blur-[120px]" />
+      <div className="absolute bottom-1/4 left-1/3 w-72 h-72 rounded-full bg-indigo-400/10 blur-[80px] animate-pulse" />
 
-      <div className="max-w-6xl mx-auto w-full grid md:grid-cols-[auto_1fr] gap-12 lg:gap-20 items-center px-6 md:px-12 lg:px-20 py-32 md:py-40 relative z-10">
-        {/* Left — Profile photo */}
+      {/* Subtle grid pattern overlay */}
+      <div
+        className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage:
+            "linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      />
+
+      <div className="max-w-6xl mx-auto w-full grid md:grid-cols-[auto_1fr] gap-10 lg:gap-20 items-center px-6 md:px-12 lg:px-20 py-32 md:py-40 relative z-10">
+        {/* Left — Profile photo with floating badges */}
         <FadeUp className="flex justify-center md:justify-start">
-          <div className="relative">
-            <div className="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-white/20 bg-white/10 flex items-center justify-center overflow-hidden shadow-2xl">
-              <User className="w-24 h-24 text-white/60" />
+          <div className="relative group">
+            {/* Glow ring behind photo */}
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-amber-400/30 to-purple-300/20 blur-2xl scale-110 group-hover:scale-125 transition-transform duration-700" />
+
+            <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full border-[3px] border-white/20 bg-white/10 backdrop-blur-sm flex items-center justify-center overflow-hidden shadow-[0_0_60px_rgba(168,85,247,0.3)] group-hover:shadow-[0_0_80px_rgba(168,85,247,0.4)] transition-shadow duration-500">
+              <User className="w-24 h-24 text-white/50" />
             </div>
-            {/* Experience badge */}
-            <div className="absolute top-4 -right-2 bg-white rounded-xl px-3 py-2 shadow-lg flex items-center gap-2">
-              <Trophy className="w-4 h-4 text-amber-500" />
-              <div className="text-xs font-semibold text-gray-800 leading-tight">
-                <span className="text-amber-500 text-sm font-bold">1+</span>
-                <br />
-                Years Experience
+
+            {/* Experience badge — glassmorphism */}
+            <div className="absolute top-2 -right-4 bg-white/95 backdrop-blur-md rounded-2xl px-4 py-2.5 shadow-xl flex items-center gap-2.5 animate-fade-in hover:scale-105 transition-transform duration-200 cursor-default">
+              <div className="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center">
+                <Trophy className="w-4 h-4 text-amber-600" />
+              </div>
+              <div className="text-xs leading-tight">
+                <span className="text-amber-600 text-lg font-extrabold block" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>1+</span>
+                <span className="text-gray-500 font-medium">Years Exp.</span>
               </div>
             </div>
-            {/* Award badge */}
-            <div className="absolute -bottom-2 -left-2 bg-amber-500 text-white rounded-full px-4 py-2 shadow-lg flex items-center gap-2 text-sm font-semibold">
-              <Award className="w-4 h-4" />
+
+            {/* Bottom badge */}
+            <div className="absolute -bottom-3 left-0 bg-gradient-to-r from-amber-500 to-amber-400 text-white rounded-full px-5 py-2.5 shadow-xl flex items-center gap-2 text-sm font-bold animate-fade-in hover:scale-105 transition-transform duration-200 cursor-default">
+              <Sparkles className="w-4 h-4" />
               Full-Stack Dev
             </div>
           </div>
@@ -51,47 +69,81 @@ const HeroSection = () => {
 
         {/* Right — Content */}
         <FadeUp>
-          <div className="flex items-center gap-2 mb-6">
-            <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-            <span className="text-white/80 text-sm font-medium tracking-wide">
+          {/* Availability pill */}
+          <div className="inline-flex items-center gap-2.5 mb-8 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/10">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
+            </span>
+            <span className="text-white/90 text-sm font-medium tracking-wide">
               Available for opportunities
             </span>
           </div>
 
           <h1
-            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-6 text-white"
+            className="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-bold leading-[1.08] tracking-tight mb-6 text-white"
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}
           >
             Hi, I'm Yogesh,
             <br />
-            <span className="text-amber-400">Full-Stack</span>
+            <span className="bg-gradient-to-r from-amber-300 via-amber-400 to-orange-400 bg-clip-text text-transparent">
+              Full-Stack
+            </span>
             <br />
             Developer
           </h1>
 
-          <p className="text-white/70 max-w-md text-base md:text-lg leading-relaxed mb-8">
+          <p className="text-white/65 max-w-lg text-base md:text-lg leading-relaxed mb-8">
             A passionate developer dedicated to crafting professional, efficient,
-            and modern web solutions that make a difference.
+            and modern web solutions that make a real difference.
           </p>
 
-          <Button
-            asChild
-            size="lg"
-            className="rounded-full border-2 border-white/30 bg-transparent text-white hover:bg-white hover:text-purple-700 transition-all duration-300 px-8 gap-2 mb-12"
-          >
-            <a href="#skills">
-              View My Work <ArrowRight className="w-4 h-4" />
-            </a>
-          </Button>
+          {/* Tech badges */}
+          <div className="flex flex-wrap gap-2 mb-8">
+            {techBadges.map((t) => (
+              <span
+                key={t}
+                className="text-xs font-medium px-3 py-1.5 rounded-full bg-white/10 text-white/80 border border-white/10 backdrop-blur-sm hover:bg-white/20 transition-colors duration-200 cursor-default"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
 
-          {/* Stats row */}
-          <div className="flex gap-8 md:gap-12">
-            {stats.map((s) => (
-              <div key={s.label}>
-                <p className="text-3xl md:text-4xl font-bold text-white" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+          {/* CTA buttons */}
+          <div className="flex flex-wrap gap-4 mb-14">
+            <Button
+              asChild
+              size="lg"
+              className="rounded-full bg-white text-purple-700 hover:bg-white/90 font-semibold px-8 gap-2 shadow-lg shadow-purple-900/20 hover:shadow-xl hover:shadow-purple-900/30 transition-all duration-300"
+            >
+              <a href="#skills">
+                View My Work <ArrowRight className="w-4 h-4" />
+              </a>
+            </Button>
+            <Button
+              asChild
+              size="lg"
+              className="rounded-full border-2 border-white/25 bg-transparent text-white hover:bg-white/10 font-semibold px-8 transition-all duration-300"
+            >
+              <a href="#contact">Contact Me</a>
+            </Button>
+          </div>
+
+          {/* Stats row with dividers */}
+          <div className="flex gap-0">
+            {stats.map((s, i) => (
+              <div
+                key={s.label}
+                className={`pr-8 ${i > 0 ? "pl-8 border-l border-white/15" : ""}`}
+              >
+                <p
+                  className="text-3xl md:text-4xl font-extrabold text-white"
+                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                >
                   {s.value}
                 </p>
-                <p className="text-white/60 text-sm mt-1">{s.label}</p>
+                <p className="text-white/50 text-sm mt-1 font-medium">{s.label}</p>
               </div>
             ))}
           </div>
