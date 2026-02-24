@@ -1,71 +1,113 @@
 import { FadeUp } from "@/hooks/use-fade-up";
-import { Briefcase, User, Target, Zap } from "lucide-react";
+import { GraduationCap, Briefcase, Code, Globe, Layout } from "lucide-react";
 
-const highlights = [
-  { icon: Target, label: "Goal-Oriented", desc: "Building impactful solutions" },
-  { icon: Zap, label: "Fast Learner", desc: "Always exploring new tech" },
-  { icon: User, label: "Team Player", desc: "Collaborative & communicative" },
+const education = {
+  school: "Adhiyamaan College of Engineering",
+  degree: "Master of Computer Applications",
+  year: "Expected 2026",
+  achievements: [
+    "Bachelor's in Computer Applications (2023)",
+    "Strong foundation in full-stack development",
+    "Active contributor to tech communities",
+  ],
+};
+
+const skills = [
+  { icon: Code, title: "Full-Stack Development", level: "Advanced" },
+  { icon: Globe, title: "REST API Design", level: "Advanced" },
+  { icon: Layout, title: "Frontend (React)", level: "Advanced" },
+];
+
+const experiences = [
+  {
+    period: "Jan 2026 – Present",
+    role: "Software Developer Intern",
+    company: "Knewton Tech",
+    description:
+      "Development and maintenance of web applications. Writing clean, reusable code and collaborating with senior developers on project deliverables.",
+  },
 ];
 
 const AboutSection = () => {
   return (
     <section id="about" className="section-padding bg-card">
-      <div className="max-w-5xl mx-auto">
-        <FadeUp>
-          <p className="text-accent font-semibold text-sm tracking-widest uppercase mb-3">About Me</p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-12">
-            Turning ideas into{" "}
-            <span className="bg-gradient-to-r from-sky-500 to-cyan-500 bg-clip-text text-transparent">digital reality</span>
-          </h2>
-        </FadeUp>
+      <div className="max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
+          {/* Left Column — Education + Skills */}
+          <div className="space-y-12">
+            {/* Education */}
+            <FadeUp>
+              <div className="flex items-center gap-3 mb-6">
+                <GraduationCap className="w-6 h-6 text-accent" />
+                <h2 className="text-2xl md:text-3xl font-bold">Education</h2>
+              </div>
 
-        <div className="grid md:grid-cols-[1fr_auto] gap-12 items-start">
-          <FadeUp>
-            <div className="space-y-5 text-muted-foreground leading-relaxed text-base md:text-lg">
-              <p>
-                I'm a passionate software developer with a strong interest in full-stack web development and backend engineering. I enjoy building applications that are not only functional but also clean, scalable, and user-friendly.
-              </p>
-              <p>
-                My primary tech stack revolves around React for the frontend and Node.js/Express for backend services, with Python as my go-to language for scripting and automation. I'm deeply interested in RESTful API design, database optimization, and emerging AI technologies.
-              </p>
-              <p>
-                I believe in continuous learning and constantly push myself to explore new frameworks, tools, and best practices. My goal is to contribute to innovative solutions that make a real-world impact.
-              </p>
-            </div>
-          </FadeUp>
+              <div className="bg-background border border-border rounded-2xl p-6 hover:border-accent/20 transition-colors duration-300">
+                <h3 className="text-lg font-bold">{education.school}</h3>
+                <p className="text-muted-foreground text-sm">{education.degree}</p>
+                <p className="text-muted-foreground text-sm mb-5">{education.year}</p>
 
-          <FadeUp>
-            <div className="flex flex-col gap-4">
-              {highlights.map((h, i) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-3.5 bg-secondary/60 backdrop-blur-sm rounded-xl px-5 py-4 border border-border hover:border-accent/30 hover:shadow-md hover:shadow-accent/5 transition-all duration-300 group cursor-default"
-                >
-                  <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center shrink-0 group-hover:bg-accent/20 transition-colors duration-300">
-                    <h.icon className="w-5 h-5 text-accent" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-sm">{h.label}</p>
-                    <p className="text-xs text-muted-foreground">{h.desc}</p>
-                  </div>
+                <div className="border-t border-border pt-5">
+                  <ul className="space-y-2">
+                    {education.achievements.map((a, i) => (
+                      <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
+                        <span className="text-accent mt-1.5">•</span>
+                        {a}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              ))}
-            </div>
-          </FadeUp>
-        </div>
+              </div>
+            </FadeUp>
 
-        <FadeUp>
-          <div className="mt-12 flex items-center gap-4 bg-gradient-to-r from-sky-500/10 to-cyan-500/10 rounded-2xl p-6 border border-sky-500/20 hover:border-sky-500/30 transition-colors duration-300">
-            <div className="w-12 h-12 rounded-xl bg-sky-500/15 flex items-center justify-center shrink-0">
-              <Briefcase className="w-6 h-6 text-sky-500" />
-            </div>
-            <div>
-              <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1 font-medium">Currently</p>
-              <p className="font-bold text-lg">Software Developer Intern at Knewton Tech</p>
-              <p className="text-sm text-muted-foreground">Jan 2026 – Present</p>
-            </div>
+            {/* Skills & Expertise */}
+            <FadeUp>
+              <div className="flex items-center gap-3 mb-6">
+                <Code className="w-6 h-6 text-accent" />
+                <h2 className="text-2xl md:text-3xl font-bold">Skills & Expertise</h2>
+              </div>
+
+              <div className="space-y-4">
+                {skills.map((s, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-4 bg-background border border-border rounded-2xl px-5 py-4 hover:border-accent/20 transition-colors duration-300"
+                  >
+                    <div className="w-10 h-10 rounded-xl bg-secondary flex items-center justify-center shrink-0">
+                      <s.icon className="w-5 h-5 text-muted-foreground" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-sm">{s.title}</p>
+                      <p className="text-xs text-muted-foreground">{s.level}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </FadeUp>
           </div>
-        </FadeUp>
+
+          {/* Right Column — Experience */}
+          <div>
+            <FadeUp>
+              <div className="flex items-center gap-3 mb-6">
+                <Briefcase className="w-6 h-6 text-accent" />
+                <h2 className="text-2xl md:text-3xl font-bold">Experience</h2>
+              </div>
+
+              <div className="relative pl-6 border-l-2 border-accent/30 space-y-8">
+                {experiences.map((exp, i) => (
+                  <div key={i} className="relative">
+                    <div className="absolute -left-[0.5625rem] top-1.5 w-2.5 h-2.5 rounded-full bg-accent ring-4 ring-card" />
+                    <p className="text-accent font-semibold text-sm mb-1">{exp.period}</p>
+                    <h3 className="text-lg font-bold">{exp.role}</h3>
+                    <p className="text-muted-foreground text-sm mb-3">{exp.company}</p>
+                    <p className="text-muted-foreground text-sm leading-relaxed">{exp.description}</p>
+                  </div>
+                ))}
+              </div>
+            </FadeUp>
+          </div>
+        </div>
       </div>
     </section>
   );
