@@ -1,20 +1,20 @@
 import { FadeUp } from "@/hooks/use-fade-up";
 import { ArrowUpRight } from "lucide-react";
-import projectHealthcare from "@/assets/project-healthcare.jpg";
-import projectBanking from "@/assets/project-banking.jpg";
+import projectResume from "@/assets/project-resume.jpg";
+import projectB2B from "@/assets/project-b2b.jpg";
 
 const projects = [
   {
-    image: projectHealthcare,
-    category: "UI/UX Design",
-    title: "Healthcare App",
-    year: "2023",
+    image: projectResume,
+    category: "AI / Machine Learning",
+    title: "Smart Resume Analyzer",
+    year: "2024",
   },
   {
-    image: projectBanking,
-    category: "Mobile Design",
-    title: "Banking App",
-    year: "2023",
+    image: projectB2B,
+    category: "AI Agent",
+    title: "B2B Lead Generation & Outreach Agent",
+    year: "2024",
   },
 ];
 
