@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -8,6 +9,7 @@ const navLinks = [
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
   { label: "Services", href: "#services" },
+  { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -31,25 +33,37 @@ const Navbar = () => {
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between h-16 px-6">
         <a href="#home" className="text-xl font-bold tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-          <span className={scrolled ? "text-foreground" : "text-white"}>YK</span>
-          <span className="text-sky-500">.</span>
+          <span className={scrolled ? "text-foreground" : "text-white"}>Yogesh</span>
+          <span className="text-accent">.</span>
         </a>
 
         {/* Desktop */}
-        <ul className="hidden md:flex gap-8">
-          {navLinks.map((l) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
-                className={`text-sm font-medium transition-colors duration-200 hover:text-sky-500 ${
-                  scrolled ? "text-muted-foreground" : "text-white/80 hover:text-white"
-                }`}
-              >
-                {l.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="hidden md:flex items-center gap-8">
+          <ul className="flex gap-8">
+            {navLinks.map((l) => (
+              <li key={l.href}>
+                <a
+                  href={l.href}
+                  className={`text-sm font-medium transition-colors duration-200 hover:text-accent ${
+                    scrolled ? "text-muted-foreground" : "text-white/80 hover:text-white"
+                  }`}
+                >
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <Button
+            asChild
+            size="sm"
+            className="rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-5 gap-2"
+          >
+            <a href="#contact">
+              <Download className="w-4 h-4" />
+              Download CV
+            </a>
+          </Button>
+        </div>
 
         {/* Mobile toggle */}
         <button
@@ -77,6 +91,16 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
+          <Button
+            asChild
+            size="sm"
+            className="mt-3 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold px-5 gap-2 w-full"
+          >
+            <a href="#contact">
+              <Download className="w-4 h-4" />
+              Download CV
+            </a>
+          </Button>
         </div>
       )}
     </nav>
