@@ -36,19 +36,19 @@ const HeroSection = () => {
         }}
       />
 
-      <div className="max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-10 lg:gap-16 items-center px-6 md:px-12 lg:px-20 py-32 md:py-40 relative z-10">
-        {/* Left — Profile photo with portfolio collage effect */}
-        <FadeUp className="flex justify-center md:justify-start">
-          <div className="relative group">
+      <div className="max-w-7xl mx-auto w-full grid md:grid-cols-[1fr_1.1fr] gap-6 lg:gap-10 items-end px-6 md:px-12 lg:px-20 pt-28 pb-16 md:pt-32 md:pb-20 relative z-10">
+        {/* Left — Profile photo */}
+        <FadeUp className="flex justify-center md:justify-start md:items-end">
+          <div className="relative group mt-8 md:mt-0">
             {/* Glow ring */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/20 to-purple-300/20 blur-2xl scale-110 group-hover:scale-125 transition-transform duration-700" />
 
-            <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-[22rem] md:h-[22rem] lg:w-[26rem] lg:h-[26rem] rounded-full border-[3px] border-white/25 bg-white/10 backdrop-blur-sm overflow-hidden shadow-[0_0_60px_rgba(168,85,247,0.25)] group-hover:shadow-[0_0_80px_rgba(168,85,247,0.35)] transition-all duration-500">
+            <div className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-[24rem] md:h-[24rem] lg:w-[28rem] lg:h-[28rem] rounded-full border-[3px] border-white/25 bg-white/10 backdrop-blur-sm overflow-hidden shadow-[0_0_60px_rgba(168,85,247,0.25)] group-hover:shadow-[0_0_80px_rgba(168,85,247,0.35)] transition-all duration-500">
               <img src={profileImg} alt="Yogesh Kumar" className="w-full h-full object-cover" />
             </div>
 
-            {/* Experience badge */}
-            <div className="absolute top-2 -right-4 bg-white/95 backdrop-blur-md rounded-2xl px-4 py-2.5 shadow-xl shadow-black/10 flex items-center gap-2.5 animate-fade-in hover:scale-105 transition-transform duration-200 cursor-default">
+            {/* Experience badge — top right of circle */}
+            <div className="absolute -top-2 -right-8 md:-right-16 bg-white/95 backdrop-blur-md rounded-2xl px-4 py-2.5 shadow-xl shadow-black/10 flex items-center gap-2.5 animate-fade-in hover:scale-105 transition-transform duration-200 cursor-default">
               <div className="w-9 h-9 rounded-xl bg-accent/10 flex items-center justify-center">
                 <Trophy className="w-4 h-4 text-accent" />
               </div>
@@ -58,8 +58,8 @@ const HeroSection = () => {
               </div>
             </div>
 
-            {/* Bottom badge */}
-            <div className="absolute -bottom-3 left-0 bg-accent text-white rounded-full px-5 py-2.5 shadow-xl shadow-accent/25 flex items-center gap-2 text-sm font-bold animate-fade-in hover:scale-105 transition-transform duration-200 cursor-default">
+            {/* Bottom-left badge */}
+            <div className="absolute -bottom-2 left-4 bg-accent text-white rounded-full px-5 py-2.5 shadow-xl shadow-accent/25 flex items-center gap-2 text-sm font-bold animate-fade-in hover:scale-105 transition-transform duration-200 cursor-default">
               <Sparkles className="w-4 h-4" />
               Full-Stack Dev
             </div>
@@ -67,9 +67,9 @@ const HeroSection = () => {
         </FadeUp>
 
         {/* Right — Content */}
-        <FadeUp>
+        <FadeUp className="flex flex-col justify-center">
           {/* Availability pill */}
-          <div className="inline-flex items-center gap-2.5 mb-8 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 shadow-lg shadow-black/5">
+          <div className="inline-flex items-center gap-2.5 mb-8 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 shadow-lg shadow-black/5 self-start">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-400" />
